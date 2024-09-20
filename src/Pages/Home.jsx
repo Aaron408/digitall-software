@@ -26,7 +26,6 @@ const Home = () => {
         </div>
 
         <div className="sm:mx-3 md:mx-5">
-          {/* OUR OBJECTIVES Section */}
           <div className="flex flex-col-reverse lg:flex-row lg:items-start lg:justify-between my-8">
             <div className="lg:w-1/2 lg:flex lg:flex-col lg:justify-start mt-5">
               <h2 className="text-custom-gold text-lg text-end sm:text-end md:text-center lg:text-center text-xl font-bold">
@@ -44,7 +43,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* PAY AS YOU NEED Section */}
           <div className="flex flex-col-reverse lg:flex-row-reverse lg:items-start lg:justify-between my-8">
             <div className="lg:w-1/2 lg:flex lg:flex-col lg:justify-start mt-5">
               <h2 className="text-custom-gold text-lg text-start sm:text-start md:text-center lg:text-center text-xl font-bold">

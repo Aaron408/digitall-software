@@ -1,14 +1,11 @@
 /* eslint-disable react/prop-types */
-// LanguageContext.js
 import { createContext, useState, useContext } from 'react';
 import translations from './Diccionario';
 
-// Crear el contexto del idioma
 const LanguageContext = createContext();
 
 export const useLanguage = () => useContext(LanguageContext);
 
-// Proveedor del idioma
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('en'); // Idioma por defecto (inglés)
 

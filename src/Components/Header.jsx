@@ -3,10 +3,10 @@ import { IoIosMail } from "react-icons/io";
 import { useLanguage } from "./LanguageContext";
 
 const Header = () => {
-  const { language, switchLanguage } = useLanguage(); // Cambia el idioma con switchLanguage
+  const { language, switchLanguage } = useLanguage();
 
   const handleLanguageChange = (e) => {
-    switchLanguage(e.target.value); // Usa switchLanguage en lugar de setLanguage
+    switchLanguage(e.target.value);
   };
 
   return (
