@@ -1,11 +1,16 @@
-import "./App.css";
+/* eslint-disable react/no-unescaped-entities */
+import "./index.css"; // Asegúrate de importar el CSS
+import { BrowserRouter } from "react-router-dom";
+import Navigation from "./Navigation";
+import { LanguageProvider } from "./Components/LanguageContext";
 
 function App() {
-
   return (
-    <>
-      <h1 className="text-xl font-bold text-red-500">Prueba de tailwind</h1>
-    </>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Navigation />
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
 

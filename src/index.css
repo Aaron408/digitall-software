@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, black, gold);
+  padding: 10px 20px;
+  color: white;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.content {
+  background-color: black;
+  color: gold;
+  text-align: center;
+  padding: 20px;
+}
+
+.logo-container {
+  margin: 20px 0;
+}
+
+.logo-container img {
+  width: 150px;
+}
+
+.main-content h2 {
+  color: gold;
+}
+
+.main-content p {
+  color: white;
+}
+
+.left-menu, .right-menu {
+  display: flex;
+  align-items: center;
+}
+
+.right-menu img {
+  width: 24px;
+  height: 24px;
+}
