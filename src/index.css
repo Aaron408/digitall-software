@@ -2,55 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-body, html {
+html, body, #root {
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  background: linear-gradient(to right, black, gold);
-  padding: 10px 20px;
-  color: white;
+/* Custom scrollbar styles */
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
 }
 
-header a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
+/*LOADING DOT ANIMATION*/
+.loading-dots {
+  display: inline-block;
+  font-size: 2rem;
 }
 
-.content {
-  background-color: black;
-  color: gold;
-  text-align: center;
-  padding: 20px;
+.loading-dots span {
+  display: inline-block;
+  animation: bounce 1.5s infinite ease-in-out;
+  font-size: inherit;
 }
 
-.logo-container {
-  margin: 20px 0;
+.loading-dots span:nth-child(1) {
+  animation-delay: 0s;
 }
 
-.logo-container img {
-  width: 150px;
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
-.main-content h2 {
-  color: gold;
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
-.main-content p {
-  color: white;
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
 }
 
-.left-menu, .right-menu {
-  display: flex;
-  align-items: center;
-}
-
-.right-menu img {
-  width: 24px;
-  height: 24px;
-}

@@ -13,10 +13,10 @@ const Home = () => {
   const t = Diccionario[language]; // Traemos el json del idioma seleccionado
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-real-bg w-full">
       <Header />
-      <div className="flex-grow bg-custom-black p-8 text-center bg-black text-white">
-        <div className="py-6">
+      <div className="flex-grow p-4 sm:p-8 text-center text-white">
+        <div className="container mx-auto py-6">
           <img
             src={logo}
             alt="Logo"
@@ -25,10 +25,10 @@ const Home = () => {
           <h1 className="text-3xl font-bold">{t.title}</h1>
         </div>
 
-        <div className="sm:mx-3 md:mx-5">
+        <div className="container mx-auto">
           <div className="flex flex-col-reverse lg:flex-row lg:items-start lg:justify-between my-8">
-            <div className="lg:w-1/2 lg:flex lg:flex-col lg:justify-start mt-5">
-              <h2 className="text-custom-gold text-lg text-end sm:text-end md:text-center lg:text-center text-xl font-bold">
+            <div className="lg:w-1/2 flex flex-col justify-start mt-5">
+              <h2 className="text-custom-gold text-lg text-center lg:text-center text-xl font-bold">
                 {t.objectivesHeading}
               </h2>
               <p className="text-justify mt-2">{t.objectivesText}</p>
@@ -44,8 +44,8 @@ const Home = () => {
           </div>
 
           <div className="flex flex-col-reverse lg:flex-row-reverse lg:items-start lg:justify-between my-8">
-            <div className="lg:w-1/2 lg:flex lg:flex-col lg:justify-start mt-5">
-              <h2 className="text-custom-gold text-lg text-start sm:text-start md:text-center lg:text-center text-xl font-bold">
+            <div className="lg:w-1/2 flex flex-col justify-start mt-5">
+              <h2 className="text-custom-gold text-lg text-center lg:text-center text-xl font-bold">
                 {t.payHeading}
               </h2>
               <p className="text-justify mt-2">{t.payText}</p>
