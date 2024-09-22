@@ -14,7 +14,7 @@ html, body, #root {
   width: 0;
   height: 0;
 }
-.no-scrollbar {
+.no-scrollbar { 
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
 }
@@ -52,3 +52,19 @@ html, body, #root {
   }
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 0.6s infinite;
+}
+
+.bg-gradient-to-t {
+  background: linear-gradient(to top, rgba(255, 215, 0), rgba(255, 215, 0, 0));
+}

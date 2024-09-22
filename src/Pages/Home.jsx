@@ -1,8 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useEffect, useState } from "react";
+
 import Header from "../components/Header";
 import logo from "../Images/DASS-Logo.png";
 import objectivesImage from "../Images/Img1.png";
 import payImage from "../Images/Img2.png";
+import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 
 //Diccionario
 import Diccionario from "../Components/Diccionario";
@@ -11,6 +14,33 @@ import { useLanguage } from "../Components/LanguageContext";
 const Home = () => {
   const { language } = useLanguage(); // Obtenemos el idioma seleccionado
   const t = Diccionario[language]; // Traemos el json del idioma seleccionado
+  const [bouncing, setBouncing] = useState(false);
+  const [showArrow, setShowArrow] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBouncing((prev) => !prev);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight;
+      setShowArrow(scrollHeight > clientHeight);
+    };
+
+    window.addEventListener("resize", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on initial load
+
+    return () => {
+      window.removeEventListener("resize", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-real-bg w-full">
@@ -60,6 +90,22 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        {showArrow && (
+          <div className="fixed bottom-0 left-0 right-0 md:hidden">
+            {/* Flecha */}
+            <div
+              className={`flex justify-center items-center transition-transform ${
+                bouncing ? "animate-bounce" : ""
+              }`}
+              style={{ position: "relative", bottom: "-22px" }} // Ajusta la posición de la flecha
+            >
+              <MdOutlineKeyboardDoubleArrowDown className="h-8 w-8 text-custom-gold" />
+            </div>
+            {/* Sombra dorada */}
+            <div className="h-6 bg-gradient-to-t from-real-gold to-transparent shadow-lg" />
+          </div>
+        )}
       </div>
     </div>
   );
