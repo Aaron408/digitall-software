@@ -3,9 +3,11 @@ import { IoIosMail } from "react-icons/io";
 import { useLanguage } from "./LanguageContext";
 import { MdMenu } from "react-icons/md";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { Link, useLocation } from "react-router-dom"; // Importar Link y useLocation
 
 const Header = () => {
   const { language, switchLanguage } = useLanguage();
+  const location = useLocation(); // Obtener la ruta actual
 
   const handleLanguageChange = (e) => {
     e.stopPropagation(); // Evita que el menú se cierre
@@ -14,32 +16,44 @@ const Header = () => {
 
   return (
     <header className="bg-gradient-to-r from-black to-real-gold text-white flex justify-end md:justify-between items-center p-4">
-      <div className="flex gap-4 space-x-5 mx-10 md:flex hidden ">
+      <div className="flex gap-4 space-x-5 mx-10 md:flex hidden">
         <a
           href="/services"
           className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-yellow-600 p-2 rounded"
         >
           {language === "en" ? "Services" : "Servicios"}
         </a>
-        <a
-          href="/about"
-          className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-yellow-600 p-2 rounded"
-        >
-          {language === "en" ? "About Us" : "Sobre Nosotros"}
-        </a>
+        {location.pathname === "/about" ? (
+          <Link
+            to="/home"
+            className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-yellow-600 p-2 rounded"
+          >
+            {language === "en" ? "Home" : "Inicio"}
+          </Link>
+        ) : (
+          <a
+            href="/about"
+            className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-yellow-600 p-2 rounded"
+          >
+            {language === "en" ? "About Us" : "Sobre Nosotros"}
+          </a>
+        )}
       </div>
       <div className="flex items-center gap-4 space-x-5 mx-5 md:flex hidden">
         <h1 className="hidden sm:block hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-black p-2 rounded">
           {language === "en" ? "Contact Us" : "Contáctanos"}
         </h1>
         <a
-          href="mailto:email@example.com"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@digitallsoftwaresolutions.com"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-black p-2 rounded"
         >
           <IoIosMail className="h-6 w-8" />
         </a>
+
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/DigitallSoftwareSolutions"
           className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-black p-2 rounded"
         >
           <FaFacebook className="h-6 w-6" />
@@ -90,14 +104,20 @@ const Header = () => {
           </MenuItem>
           <MenuItem>
             {({ active }) => (
-              <a
-                href="/about"
+              <Link
+                to={location.pathname === "/about" ? "/home" : "/about"}
                 className={`${
                   active ? "bg-gray-800" : ""
                 } block px-4 py-2 text-sm`}
               >
-                {language === "en" ? "About Us" : "Sobre Nosotros"}
-              </a>
+                {location.pathname === "/about"
+                  ? language === "en"
+                    ? "Home"
+                    : "Inicio"
+                  : language === "en"
+                  ? "About Us"
+                  : "Sobre Nosotros"}
+              </Link>
             )}
           </MenuItem>
 
@@ -111,7 +131,9 @@ const Header = () => {
             {({ active }) => (
               <div>
                 <a
-                  href="mailto:email@example.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@digitallsoftwaresolutions.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`${
                     active ? "bg-gray-800" : ""
                   } flex items-center gap-2 px-4 py-2 text-sm`}
@@ -126,10 +148,10 @@ const Header = () => {
             {({ active }) => (
               <div>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/DigitallSoftwareSolutions/"
                   className={`${
                     active ? "bg-gray-800" : ""
-                  } flex items-center gap-2 px-4 py-2 text-sm`} // Usamos flex y gap
+                  } flex items-center gap-2 px-4 py-2 text-sm`}
                 >
                   Facebook <FaFacebook className="h-6 w-4" />
                 </a>

@@ -27,25 +27,32 @@ const Home = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = document.documentElement.clientHeight;
-      setShowArrow(scrollHeight > clientHeight);
+      const scrollTop = document.documentElement.scrollTop; // Lo que se ha desplazado
+      const scrollHeight = document.documentElement.scrollHeight; // Altura total de la página
+      const clientHeight = document.documentElement.clientHeight; // Altura visible
+
+      // Si estamos a menos de 50px del final ocultamos la flecha
+      if (scrollTop + clientHeight >= scrollHeight - 50) {
+        setShowArrow(false);
+      } else {
+        setShowArrow(true);
+      }
     };
 
-    window.addEventListener("resize", handleScroll);
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check on initial load
+    window.addEventListener("resize", handleScroll);
+    handleScroll();
 
     return () => {
-      window.removeEventListener("resize", handleScroll);
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-real-bg w-full">
       <Header />
-      <div className="flex-grow p-4 sm:p-8 text-center text-white">
+      <div className="flex-grow p-4 sm:p-8 text-center text-white mx-1">
         <div className="container mx-auto py-6">
           <img
             src={logo}
@@ -56,7 +63,7 @@ const Home = () => {
         </div>
 
         <div className="container mx-auto">
-          <div className="flex flex-col-reverse lg:flex-row lg:items-start lg:justify-between my-8">
+          <div className="flex flex-col-reverse lg:flex-row lg:items-start lg:justify-between sm:my-8">
             <div className="lg:w-1/2 flex flex-col justify-start mt-5">
               <h2 className="text-custom-gold text-lg text-center lg:text-center text-xl font-bold">
                 {t.objectivesHeading}
@@ -98,7 +105,7 @@ const Home = () => {
               className={`flex justify-center items-center transition-transform ${
                 bouncing ? "animate-bounce" : ""
               }`}
-              style={{ position: "relative", bottom: "-22px" }} // Ajusta la posición de la flecha
+              style={{ position: "relative", bottom: "-20px" }} // Ajusta la posición de la flecha
             >
               <MdOutlineKeyboardDoubleArrowDown className="h-8 w-8 text-custom-gold" />
             </div>
