@@ -13,6 +13,21 @@ const Diccionario = {
     contactTitle: "Contact Information",
     locationTitle: "Our Location",
     ourTeamTitle: "DigitAll Software Solutions Team",
+    servicesTitle: "Our Services",
+    staticSitesTitle: "Static Websites",
+    staticSitesText:
+      "We create visually appealing, fast-loading websites that display information about your business. These websites are perfect for showcasing your brand and services online.",
+    webAppsTitle: "Web Applications with E-commerce",
+    webAppsText:
+      "We build websites where you can sell your products or services directly. From an online store to managing payments, everything is taken care of for you.",
+    mobileAppsTitle: "Mobile Applications",
+    mobileAppsText:
+      "Want to offer your service or product through a mobile app? We design and build apps for Android and iOS, tailored to your business needs.",
+    integratedSystemsTitle: "Integrated Systems",
+    integratedSystemsText:
+      "We create systems that work seamlessly across the web and mobile platforms, allowing your users to access your services from anywhere.",
+    servicesDescription:
+      "We offer a range of services to meet your digital needs.",
   },
   es: {
     title: "DigitAll Software Solutions",
@@ -28,6 +43,21 @@ const Diccionario = {
     contactTitle: "Información de Contacto",
     locationTitle: "Nuestra Ubicación",
     ourTeamTitle: "Equipo de DigitAll Software Solutions",
+    servicesTitle: "Nuestros Servicios",
+    staticSitesTitle: "Sitios Web Estáticos",
+    staticSitesText:
+      "Creamos sitios web visualmente atractivos y de carga rápida que muestran la información de tu negocio. Son perfectos para mostrar tu marca y servicios en línea.",
+    webAppsTitle: "Aplicaciones Web con Venta de Productos",
+    webAppsText:
+      "Desarrollamos sitios web donde puedes vender productos o servicios directamente. Desde una tienda en línea hasta la gestión de pagos, todo está cubierto para ti.",
+    mobileAppsTitle: "Aplicaciones Móviles",
+    mobileAppsText:
+      "¿Quieres ofrecer tu servicio o producto a través de una app móvil? Diseñamos y construimos aplicaciones para Android e iOS, adaptadas a las necesidades de tu negocio.",
+    integratedSystemsTitle: "Sistemas Integrados",
+    integratedSystemsText:
+      "Creamos sistemas que funcionan perfectamente tanto en la web como en plataformas móviles, permitiendo a tus usuarios acceder a tus servicios desde cualquier lugar.",
+    servicesDescription:
+      "Ofrecemos una amplia gama de servicios para satisfacer sus necesidades digitales.",
   },
 };
 

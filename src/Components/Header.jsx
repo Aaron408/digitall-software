@@ -17,12 +17,21 @@ const Header = () => {
   return (
     <header className="bg-gradient-to-r from-black to-real-gold text-white flex justify-end md:justify-between items-center p-4">
       <div className="flex gap-4 space-x-5 mx-10 md:flex hidden">
-        <a
-          href="/services"
-          className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-yellow-600 p-2 rounded"
-        >
-          {language === "en" ? "Services" : "Servicios"}
-        </a>
+        {location.pathname === "/services" ? (
+          <Link
+            to="/home"
+            className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-yellow-600 p-2 rounded"
+          >
+            {language === "en" ? "Home" : "Inicio"}
+          </Link>
+        ) : (
+          <Link
+            to="/services"
+            className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-yellow-600 p-2 rounded"
+          >
+            {language === "en" ? "Services" : "Servicios"}
+          </Link>
+        )}
         {location.pathname === "/about" ? (
           <Link
             to="/home"
@@ -31,12 +40,12 @@ const Header = () => {
             {language === "en" ? "Home" : "Inicio"}
           </Link>
         ) : (
-          <a
-            href="/about"
+          <Link
+            to="/about"
             className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-yellow-600 p-2 rounded"
           >
             {language === "en" ? "About Us" : "Sobre Nosotros"}
-          </a>
+          </Link>
         )}
       </div>
       <div className="flex items-center gap-4 space-x-5 mx-5 md:flex hidden">
@@ -92,14 +101,20 @@ const Header = () => {
         <MenuItems className="absolute right-0 mt-2 w-48 bg-black text-white rounded-lg shadow-lg py-1 z-50">
           <MenuItem>
             {({ active }) => (
-              <a
-                href="/services"
+              <Link
+                to={location.pathname === "/services" ? "/home" : "/services"}
                 className={`${
                   active ? "bg-gray-800" : ""
                 } block px-4 py-2 text-sm`}
               >
-                {language === "en" ? "Services" : "Servicios"}
-              </a>
+                {location.pathname === "/services"
+                  ? language === "en"
+                    ? "Home"
+                    : "Inicio"
+                  : language === "en"
+                  ? "Services"
+                  : "Servicios"}
+              </Link>
             )}
           </MenuItem>
           <MenuItem>

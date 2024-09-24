@@ -3,6 +3,10 @@ import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 
+//Fotos de perfil
+import perfil1 from "../Images/ProfileAaronReyes.jpeg";
+import perfil2 from "../Images/perfil2.jpeg";
+
 //Pages
 import Header from "../components/Header";
 
@@ -20,24 +24,25 @@ const AboutUs = () => {
       <div className="flex-grow p-4 sm:p-8 text-center text-white">
         <div className="container mx-auto">
           {/* Nuestro Equipo */}
-          <div className="mt-10">
+          <div className="mt-6">
             <h2 className="text-3xl font-semibold mb-6">{t.ourTeamTitle}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div></div>
               <div className="text-center">
                 <img
-                  src="/images/team-member1.jpg"
+                  src={perfil1}
                   alt="Team Member"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
                 <h3 className="text-xl font-semibold">Aaron Reyes Ruiz</h3>
                 <div className="flex items-center justify-center gap-2 mt-2">
                   <MdEmail className="text-yellow-500" />
-                  <span>aaron@example.com</span>
+                  <span>aaron.reyes@digitallsoftwaresolutions.com</span>
                 </div>
               </div>
               <div className="text-center">
                 <img
-                  src="/images/team-member2.jpg"
+                  src={perfil2}
                   alt="Team Member"
                   className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
@@ -46,21 +51,22 @@ const AboutUs = () => {
                 </h3>
                 <div className="flex items-center justify-center gap-2 mt-2">
                   <MdEmail className="text-yellow-500" />
-                  <span>angel@example.com</span>
+                  <span>angel.anaya@digitallsoftwaresolutions.com</span>
                 </div>
               </div>
+              <div></div>
             </div>
           </div>
 
           {/* Información de contacto */}
-          <div className="mt-10">
+          <div className="mt-10 mb-5 ">
             <h2 className="text-3xl font-semibold mb-6">{t.contactTitle}</h2>
             <div className="flex flex-col items-center space-y-6">
               {/* Teléfono */}
-              <div className="flex items-center gap-4">
+              {/* <div className="flex items-center gap-4">
                 <FaPhoneAlt className="text-yellow-500 h-6 w-6" />
                 <p className="text-lg">+52 4424225776</p>
-              </div>
+              </div> */}
 
               {/* Correo electrónico */}
               <div className="flex items-center gap-4">
