@@ -53,7 +53,7 @@ const Header = () => {
           {language === "en" ? "Contact Us" : "Contáctanos"}
         </h1>
         <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@digitallsoftwaresolutions.com"
+          href={language === "en" ?  "mailto:sales@digitallsoftwaresolutions.com?subject=Project%20Quotation&body=I%20would%20like%20to%20obtain%20an%20evaluation%20of%20a%20project%20for%20development" :  "mailto:sales@digitallsoftwaresolutions.com?subject=Cotizacion%20de%20Sitio&body=Me%20gustria%20cotizar%20un%20proyecto%20de%20software"}
           target="_blank"
           rel="noopener noreferrer"
           className="hover:-translate-y-2 transition-all duration-500 ease-out hover:shadow-md hover:shadow-black p-2 rounded"
@@ -146,7 +146,7 @@ const Header = () => {
             {({ active }) => (
               <div>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@digitallsoftwaresolutions.com"
+                  href={language === "en" ?  "mailto:sales@digitallsoftwaresolutions.com?subject=Project%20Quotation&body=I%20would%20like%20to%20obtain%20an%20evaluation%20of%20a%20project%20for%20development" :  "mailto:sales@digitallsoftwaresolutions.com?subject=Cotizacion%20de%20Sitio&body=Me%20gustria%20cotizar%20un%20proyecto%20de%20software"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${
