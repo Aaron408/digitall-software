@@ -27,21 +27,18 @@ const Home = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = document.documentElement.scrollTop; // Lo que se ha desplazado
-      const scrollHeight = document.documentElement.scrollHeight; // Altura total de la página
-      const clientHeight = document.documentElement.clientHeight; // Altura visible
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY;
 
-      // Si estamos a menos de 50px del final ocultamos la flecha
-      if (scrollTop + clientHeight >= scrollHeight - 50) {
-        setShowArrow(false);
-      } else {
-        setShowArrow(true);
-      }
+      // Se esconde la animación de scroll cuando falten 50px para el final de la página
+      const isNearBottom = documentHeight - (scrollTop + windowHeight) < 50;
+      setShowArrow(!isNearBottom);
     };
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleScroll);
-    handleScroll();
+    handleScroll(); // Chequeo inicial
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
