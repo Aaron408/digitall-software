@@ -5,7 +5,7 @@ import { MdEmail } from "react-icons/md";
 
 //Fotos de perfil
 import perfil1 from "../Images/ProfileAaronReyes.jpeg";
-import perfil2 from "../Images/perfil2.jpeg";
+import perfil2 from "../Images/ProfileAngel.jpeg";
 
 //Pages
 import Header from "../components/Header";
